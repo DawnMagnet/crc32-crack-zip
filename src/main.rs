@@ -198,7 +198,10 @@ fn crc_collision(target_crc: u32, _byte_count: usize) -> Vec<String> {
         }
     }
 
-    out
+    out.iter()
+        .filter(|s| s.len() == _byte_count)
+        .cloned()
+        .collect()
 }
 
 fn handle_list_crc(file: &str) {
